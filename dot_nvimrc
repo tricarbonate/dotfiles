@@ -1,0 +1,356 @@
+" VIM/NEOVIM Configuration
+"  
+" Author: Théo Reibell
+"
+
+" Vim-plug Installation (NeoVim):
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+endif
+
+call plug#begin('~/.config/nvim/plugged')
+
+    " Plugin: Code Completion 
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+    " Plugin: File Navigation
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'preservim/nerdtree' 
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'yegappan/taglist'
+
+    " Plugin: Text Editing 
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'machakann/vim-sandwich'
+    Plug 'preservim/nerdcommenter'
+    Plug 'tpope/vim-sleuth'
+    Plug 'editorconfig/editorconfig-vim' 
+    Plug 'andymass/vim-matchup'
+    Plug 'mattn/emmet-vim'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'AndrewRadev/splitjoin.vim'
+
+" Auto update tags on documents saves
+    Plug 'craigemery/vim-autotag' 
+
+    " Plugin: Git Plugins
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+
+    " Plugin: Color Schemes And Text Highlighting 
+    Plug 'dracula/vim'
+    Plug 'ghifarit53/tokyonight-vim'
+    "Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'jackguo380/vim-lsp-cxx-highlight'
+    "Plug 'sheerun/vim-polyglot'
+    Plug 'luochen1990/rainbow' 
+    Plug 'dominikduda/vim_current_word'
+    Plug 'unblevable/quick-scope'
+    Plug 'ntk148v/vim-horizon'
+
+    " Plugin: UI
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    Plug 'Yggdroot/indentLine'
+    Plug 'miyakogi/conoline.vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'markonm/traces.vim'
+
+    " Plugin: Language specific 
+    Plug 'lervag/vimtex'
+    Plug 'leafOfTree/vim-vue-plugin'
+    Plug 'tikhomirov/vim-glsl'    
+
+    " Plugin: Utils
+    Plug 'itchyny/calendar.vim'
+    "Plug 'cskeeters/vim-smooth-scroll'
+    "Plug 'psliwka/vim-smoothie'
+    "Plug 'tricarbonate/vim-smoothie' 
+    Plug 'REslim30/vim-smoothie'
+    
+    " Plugin: Debugging
+    Plug 'puremourning/vimspector'
+
+    Plug 'Konfekt/FastFold'
+
+call plug#end()
+
+
+" Vim Settings 
+    set showmatch 		" show matching brackets
+    set number		" show the line number on the left side
+    set rnu			" Relative Numbers
+    set expandtab           " Insert spaces when TAB is pressed.
+    set tabstop=4           " Render TABs using this many spaces.
+    set shiftwidth=4        " Indentation amount for < and > commands.
+
+    set history=700
+
+    " Ignore case when searching
+    set ignorecase 
+    
+    set nojoinspaces 	" Prevents inserting two spaces after punctuation on a join.
+    set nostartofline	" Do not jump to start of line
+
+    set scrolloff=5     " fastScrolling
+
+    set autoindent
+    set smartindent
+
+    set listchars=tab:\|\
+
+    set hidden
+
+    " some servers have issues with backup files.
+    set nobackup
+    set nowritebackup
+
+    set cmdheight=2
+
+    set updatetime=300
+
+    set shortmess+=c
+    set signcolumn=yes
+
+    set termguicolors
+
+    au BufNewFile,BufRead *.ejs set filetype=html
+
+    " Backup, swap and undofile
+    set noswapfile
+    set undofile
+    set undodir=$HOME/.cache/vim/undo
+    set backup
+    set backupdir=$HOME/.cache/vim/backup
+    if !isdirectory(&undodir)
+      call mkdir(&undodir, 'p')
+    endif
+    if !isdirectory(&backupdir)
+      call mkdir(&backupdir, 'p')
+    endif
+
+    set gfn=Monospace\10
+
+let mapleader = "," 
+
+" Clipboard to use it exterior
+set clipboard=unnamedplus
+
+" Return to last edit position when opening files 
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
+      \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
+      \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
+      \   '104', '124', '7', '39'],
+      \ 'separately' : {
+      \   'gitconfig' : 0,
+      \   'wiki' : 0,
+      \   'md' : 0,
+      \   'help' : 0,
+      \   'vue' : 0,
+      \   'cfg' : 0,
+      \   'toml' : 0,
+      \   'qf' : 0,
+      \   'man' : 0,
+      \ }
+      \}
+
+"Custorm Highlight
+"
+" c++ syntax highligting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_no_function_highlight = 1
+let g:lsp_cxx_hl_use_text_props = 1
+
+autocmd FileType vue syntax sync fromstart
+
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_current_word = 'italic'
+
+let g:Hexokinase_highlighters = [ 'virtual' ]
+
+" Status Line scheme
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+
+
+" Tokyo Night is my preferred colorscheme with few changes below
+colorscheme tokyonight
+"colorscheme dracula
+"colorscheme horizon
+
+" Overrides some of the colors from tokyonight
+highlight CursorLineNr guifg=#ffd0d7
+highlight Identifier guifg=#5576ff
+highlight Function guifg=#dd94cc
+highlight String guifg=#88dd99
+"
+
+ "Current word and word occurrences highlight
+let g:vim_current_word#enabled = 1
+let g:vim_current_word#highlight_twins = 1
+let g:vim_current_word#highlight_current_word = 1
+hi CurrentWord ctermbg=53 gui=bold
+hi CurrentWordTwins ctermbg=237 gui=bold
+
+
+" Quick scope settings
+highlight QuickScopePrimary guifg='#bfcd5f' gui=bold ctermfg=155 cterm=bold
+highlight QuickScopeSecondary guifg='#5fffff' gui=bold ctermfg=81 cterm=bold
+
+"Multiple cursors highlighting
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
+
+
+" Calendar.vim remaps
+nnoremap <leader>C :Calendar -first_day=monday<CR>
+
+" Window creation/supression
+    function! WinMove(key)
+        let t:curwin = winnr()
+        exec "wincmd ".a:key
+        if (t:curwin == winnr())
+            if (match(a:key,'[jk]'))
+                wincmd v
+            else
+                wincmd s
+            endif
+            exec "wincmd ".a:key
+        endif
+    endfunction
+
+    nnoremap <leader>x :<C-W>q<CR>
+    nnoremap <silent> <C-h> :call WinMove('h')<CR>
+    nnoremap <silent> <C-j> :call WinMove('j')<CR>
+    nnoremap <silent> <C-k> :call WinMove('k')<CR>
+    nnoremap <silent> <C-l> :call WinMove('l')<CR>
+"
+
+" FZF Search in Vim
+    map <C-f> <Esc><Esc>:Files!<CR>
+    inoremap <C-f> <Esc><Esc>:BLines!<CR> 
+    map <C-g> <Esc><Esc>:BCommits!<CR>
+
+    nmap <leader>f <C-f>
+"
+
+
+" CoC mappings
+    inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1] =~# '\s'
+    endfunction
+
+    inoremap <silent><expr> <c-space> coc#refresh()
+    inoremap <expr <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gt <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references) 
+    nmap <silent> <leader>t :CocCommand clangd.switchSourceHeader<CR>
+
+    nnoremap <silent> K :call <siD.show_documentation()<CR>
+    function! s:show_documentation()
+        if (index(['vim', 'help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+
+    " Hightlight symbol under cursos on cursorHold
+    autocmd cursorHold * silent call CocActionAsync('highlight')
+
+    " Remap for rename current word
+    nmap <leader>rn <Plug>(coc-rename) 
+
+    " Remap for format selected region
+    "xmap <leader>f <Plug>(coc-format-selected)
+    "nmap <leader>f <Plug>(coc-format-selected)
+" 
+
+let g:loaded_smooth_scroll = 0
+let g:ms_per_line = 4
+let g:scroll_disable_mapping = 1
+let g:smoothie_enabled = 1
+let g:smoothie_no_default_mappings = v:true
+
+" NERDTree mappings
+
+    nmap <silent> <leader>a :NERDTreeToggle<CR>
+    
+    " nerdtree-git :
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+ 
+
+    
+" General/standard remmapings
+"
+nnoremap Y y$
+" Navigate between 'rendered' lines instead of actual lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gb :bnext<CR>
+vnoremap <C-p> "*p
+
+" Save movements larger than 5 lines to the jumplist 
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+
+" Search for next number if file
+nnoremap <silent> <Leader>nd :call search('\d\+')<CR>
+
+"Map <C-L> (redraw screen) to also turn off search highlighting until the
+" next search
+nnoremap <C-m> :nohl<CR><C-L> ""
+cnoremap w!! w !sudo tee % >/dev/null<CR>
+cnoremap q q!<CR>
+inoremap kk <ESC>
+inoremap kj <ESC>
+inoremap jk <ESC>
+
+"nnoremap <leader>ca <leader>c<BS>
+
+" Smooth scroll mappings
+silent! map <unique> U     <Plug>(SmoothieUpwards)
+silent! map <unique> m      <Plug>(SmoothieDownwards)
+silent! map <unique> zm     <Plug>(SmoothieMiddle)
+silent! map <unique> zh     <Plug>(SmoothieTop)
+silent! map <unique> zl     <Plug>(SmoothieBottom)
+silent! map <unique> gg     <Plug>(Smoothie_gg)
+silent! map <unique> G      <Plug>(Smoothie_G)
+"silent! map <unique> {      <Plug>(SmoothieParagraphUp)
+"silent! map <unique> n      <Plug>(SmoothieNext)h
