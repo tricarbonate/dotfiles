@@ -55,7 +55,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'Yggdroot/indentLine'
     Plug 'miyakogi/conoline.vim'
-    Plug 'itchyny/lightline.vim'
+    Plug 'itchyny/lightline.vim'  
+    "Plug 'tamton-aquib/staline.nvim'
     Plug 'markonm/traces.vim'
 
     " Plugin: Language specific 
@@ -337,7 +338,7 @@ nnoremap <silent> <Leader>nd :call search('\d\+')<CR>
 " next search
 nnoremap <C-m> :nohl<CR><C-L> ""
 cnoremap w!! w !sudo tee % >/dev/null<CR>
-cnoremap q q!<CR>
+"cnoremap q q!<CR>
 inoremap kk <ESC>
 inoremap kj <ESC>
 inoremap jk <ESC>
