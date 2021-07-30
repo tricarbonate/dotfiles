@@ -48,3 +48,4 @@ fi
 # Aliases
 alias todo="todo.sh"
 alias cd.="cd ~/Documents/tricarbonate/dotfiles"
+alias cdrepos="cd ~/Documents/tricarbonate"
