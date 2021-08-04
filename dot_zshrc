@@ -28,6 +28,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 for zsh_file (~/zsh/*.zsh) source $zsh_file
 
 plugins=(git)
+plugins=(you-should-use $plugins)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,6 +41,8 @@ else
   export EDITOR='nvim'
 fi
 
+# Thefuck
+eval $(thefuck --alias)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
