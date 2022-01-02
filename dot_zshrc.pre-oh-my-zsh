@@ -1,4 +1,0 @@
-export PATH=$HOME/.config/nvcode/utils/bin:$PATH
-
-alias myip="curl http://ipecho.net/plain; echo"
-
