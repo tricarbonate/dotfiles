@@ -142,6 +142,9 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
 
+" Filter out some file/folders
+filter .ccls-cache
+
 " ------------------------------------------------------------------------------
 
 " The file type is for the default programs to be used with

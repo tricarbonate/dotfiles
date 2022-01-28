@@ -12,7 +12,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 11
-background_opacity: 1
+background_opacity: 0.97
 window.dynamic_title: true
 
 # Font configuration
@@ -22,6 +22,7 @@ font:
     style: Regular
 
   bold:
+    family: Fira Mono
     style: Bold
 
   italic:
@@ -29,7 +30,7 @@ font:
     style: Italic
 
   bold_italic:
-    family: Fira Mono Nerd Font
+    family: Fira Mono
     #style: Bold Italic
 
   # Point size
@@ -54,7 +55,7 @@ colors:
   # Default colors
   primary:
     background: '#1a1b21'
-    foreground: '#cfc8d6'
+    foreground: '#efe8e6'
 
     # Bright and dim foreground colors
     #
@@ -71,9 +72,9 @@ colors:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  #cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
+  cursor:
+    text: CellBackground
+    cursor: '#cfa0ff'
 
   # Vi mode cursor colors
   #
@@ -226,12 +227,6 @@ colors:
   #     args: ["Hello, World!"]
   #
   #command: None
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
 
 #selection:
   # This string contains all characters that are used as separators for

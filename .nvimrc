@@ -314,6 +314,10 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 	\,a:blinkwait700-blinkoff300-blinkon250-Cursor/lCursor
 	\,sm:block-blinkwait175-blinkoff150-blinkon175
 
+hi CursorLine     guifg=none            guibg=#002943
+hi Cursor         guifg=#F8F8F8           guibg=#f7d7f7
+hi CursorIM       guifg=#F8F8F8           guibg=#002947"#5F5A60
+
 " NERDTree mappings
     nmap <silent> <leader>a :NERDTreeToggle<CR>
 
