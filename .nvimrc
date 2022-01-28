@@ -163,24 +163,24 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-      \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
-      \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
-      \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
-      \   '104', '124', '7', '39'],
-      \ 'separately' : {
-      \   'gitconfig' : 0,
-      \   'wiki' : 0,
-      \   'md' : 0,
-      \   'help' : 0,
-      \   'vue' : 0,
-      \   'cfg' : 0,
-      \   'toml' : 0,
-      \   'qf' : 0,
-      \   'man' : 0,
-      \ }
-      \}
+" let g:rainbow_active = 1
+" let g:rainbow_conf = {
+"       \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
+"       \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
+"       \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
+"       \   '104', '124', '7', '39'],
+"       \ 'separately' : {
+"       \   'gitconfig' : 0,
+"       \   'wiki' : 0,
+"       \   'md' : 0,
+"       \   'help' : 0,
+"       \   'vue' : 0,
+"       \   'cfg' : 0,
+"       \   'toml' : 0,
+"       \   'qf' : 0,
+"       \   'man' : 0,
+"       \ }
+"       \}
 
 " vimcp config
 lua <<EOF
