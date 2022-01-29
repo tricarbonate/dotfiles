@@ -2,7 +2,7 @@
 
 window:
   dimensions:
-    columns: 180
+    columns: 190 
     lines: 50
   padding:
     x: 5
@@ -12,25 +12,25 @@ window:
 scrolling:
   history: 10000
   multiplier: 11
-background_opacity: 0.96
+background_opacity: 0.92
 window.dynamic_title: true
 
 # Font configuration
 font:
   normal:
-    family: Fira Mono Nerd Font
-    style: Regular
+    family: FiraCode 
+    style: Retina 
 
   bold:
-    family: Fira Mono
+    family: FiraCode 
     style: Bold
 
   italic:
-    family: Fira Mono
+    family: Fira Mono 
     style: Italic
 
   bold_italic:
-    family: Fira Mono Nerd Font
+    family: Fira Mono
     #style: Bold Italic
 
   # Point size
@@ -41,7 +41,7 @@ font:
   # spacing.
   offset:
     x: 0
-    y: -2
+    y: 0 
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
