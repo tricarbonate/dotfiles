@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1 
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -28,7 +28,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec feh --bg-scale --zoom fill /home/tricarbonate/Pictures/Firefox_wallpaper.png
 
-set $workspace0 "0: Terminal" 
+set $workspace0 "0: Terminal"
 set $workspace1 "1: Qutebrowser"
 
 # Sets bindings for controlling sound in i3

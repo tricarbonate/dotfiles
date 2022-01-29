@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -141,6 +141,9 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
+
+" Filter out some file/folders
+filter .ccls-cache
 
 " ------------------------------------------------------------------------------
 
@@ -448,6 +451,10 @@ nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
+
+" Quick exit
+nnoremap ,v :q<cr>
+nnoremap ,q :q<cr>
 
 " Example of standard two-panel file managers mappings
 nnoremap <f3> :!less %f<cr>

@@ -83,7 +83,6 @@ set shiftwidth=4
 set sr
 set tabstop=4
 
-
 "autocmd BufWritePre *.js Neoformat
 "autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
 "autocmd FileType typescript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
@@ -104,6 +103,8 @@ set smartcase
 set noshowmode "to get rid of thing like --INSERT-- (we have status bar plugins for that)"
 set noshowcmd "to get rif of display of last command"
 set shortmess+=F " gets rid of file name displayed in cmd line bar
+
+set scrolloff=10
 
 "Scrollbar
 augroup ScrollbarInit
@@ -163,24 +164,24 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-      \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
-      \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
-      \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
-      \   '104', '124', '7', '39'],
-      \ 'separately' : {
-      \   'gitconfig' : 0,
-      \   'wiki' : 0,
-      \   'md' : 0,
-      \   'help' : 0,
-      \   'vue' : 0,
-      \   'cfg' : 0,
-      \   'toml' : 0,
-      \   'qf' : 0,
-      \   'man' : 0,
-      \ }
-      \}
+" let g:rainbow_active = 1
+" let g:rainbow_conf = {
+"       \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
+"       \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
+"       \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
+"       \   '104', '124', '7', '39'],
+"       \ 'separately' : {
+"       \   'gitconfig' : 0,
+"       \   'wiki' : 0,
+"       \   'md' : 0,
+"       \   'help' : 0,
+"       \   'vue' : 0,
+"       \   'cfg' : 0,
+"       \   'toml' : 0,
+"       \   'qf' : 0,
+"       \   'man' : 0,
+"       \ }
+"       \}
 
 " vimcp config
 lua <<EOF
@@ -197,6 +198,14 @@ EOF
 autocmd FileType vue syntax sync fromstart
 
 
+" Vim Smoothie constants
+let g:smoothie_enabled = 1
+let g:smoothie_update_interval = 20
+let g:smoothie_speed_constant_factor = 15 " higher value speeds up end"
+let g:smoothie_speed_linear_factor = 15 " higher value speeds up beginning"
+let g:smoothie_speed_exponentiation_factor = 0.97 " lower value produce longer animation
+
+" kexokinase highlighter type
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
 " Preprocessed language highligting for Svelte
@@ -314,6 +323,10 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 	\,a:blinkwait700-blinkoff300-blinkon250-Cursor/lCursor
 	\,sm:block-blinkwait175-blinkoff150-blinkon175
 
+hi CursorLine     guifg=none            guibg=#002943
+hi Cursor         guifg=#F8F8F8           guibg=#f7d7f7
+hi CursorIM       guifg=#F8F8F8           guibg=#002947"#5F5A60
+
 " NERDTree mappings
     nmap <silent> <leader>a :NERDTreeToggle<CR>
 
@@ -362,7 +375,7 @@ set number
 set relativenumber
 
 " Highlights trailing whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
+" highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 au BufWinEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
