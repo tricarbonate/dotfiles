@@ -83,7 +83,6 @@ set shiftwidth=4
 set sr
 set tabstop=4
 
-
 "autocmd BufWritePre *.js Neoformat
 "autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
 "autocmd FileType typescript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
@@ -104,6 +103,8 @@ set smartcase
 set noshowmode "to get rid of thing like --INSERT-- (we have status bar plugins for that)"
 set noshowcmd "to get rif of display of last command"
 set shortmess+=F " gets rid of file name displayed in cmd line bar
+
+set scrolloff=10
 
 "Scrollbar
 augroup ScrollbarInit
@@ -197,6 +198,14 @@ EOF
 autocmd FileType vue syntax sync fromstart
 
 
+" Vim Smoothie constants
+let g:smoothie_enabled = 1
+let g:smoothie_update_interval = 20
+let g:smoothie_speed_constant_factor = 15 " higher value speeds up end"
+let g:smoothie_speed_linear_factor = 15 " higher value speeds up beginning"
+let g:smoothie_speed_exponentiation_factor = 0.97 " lower value produce longer animation
+
+" kexokinase highlighter type
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
 " Preprocessed language highligting for Svelte

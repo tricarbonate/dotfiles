@@ -454,6 +454,7 @@ nnoremap ,w :set wrap!<cr>
 
 " Quick exit
 nnoremap ,v :q<cr>
+nnoremap ,q :q<cr>
 
 " Example of standard two-panel file managers mappings
 nnoremap <f3> :!less %f<cr>

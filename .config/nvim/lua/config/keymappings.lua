@@ -77,8 +77,8 @@ mapx.nmap("<leader>m", "@@")
 mapx.nnoremap("<C-S>", ":%s/")
 
 -- Scrolling (recenters with zz)
-mapx.map("U", "<C-u>zz", "silent")
-mapx.map("m", "<C-d>zz", "silent")
+mapx.map("U", "<C-u>", "silent")
+mapx.map("m", "<C-d>", "silent")
 
 -- Indent / dedent last pasted text
 mapx.nnoremap("<space><", "V`]<")

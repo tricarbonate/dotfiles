@@ -2,7 +2,7 @@
 
 window:
   dimensions:
-    columns: 150
+    columns: 180
     lines: 50
   padding:
     x: 5
@@ -12,7 +12,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 11
-background_opacity: 0.97
+background_opacity: 0.96
 window.dynamic_title: true
 
 # Font configuration
@@ -30,7 +30,7 @@ font:
     style: Italic
 
   bold_italic:
-    family: Fira Mono
+    family: Fira Mono Nerd Font
     #style: Bold Italic
 
   # Point size
