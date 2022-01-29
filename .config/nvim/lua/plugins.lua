@@ -41,6 +41,9 @@ return require('packer').startup(function(use)
     use 'ray-x/lsp_signature.nvim'
     use 'kosayoda/nvim-lightbulb' -- show a light bulb when a code action is available
 
+    -- Smoothie
+    use 'REslim30/vim-smoothie'
+
     ---- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     -- use 'p00f/nvim-ts-rainbow'
