@@ -68,6 +68,9 @@ return require('packer').startup(function(use)
     use {'pineapplegiant/spaceduck', branch = 'main'}
 
 
+    -- Discord Rich Presence
+    use 'vimsence/vimsence'
+
     --use 'glepnir/lspsaga.nvim'
     --use 'onsails/lspkind-nvim'
     --use 'mfussenegger/nvim-jdtls'

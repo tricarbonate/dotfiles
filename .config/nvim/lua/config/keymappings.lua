@@ -65,6 +65,7 @@ mapx.nnoremap("Y", "yg_")
 
 -- Quick save and <Esc>
 mapx.nnoremap("<leader>s", ":w<CR>")
+mapx.nnoremap("<leader>S", ":wq<CR>")
 mapx.inoremap("jk", "<ESC>")
 
 -- Select all file
