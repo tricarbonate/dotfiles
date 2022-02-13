@@ -18,20 +18,20 @@ window.dynamic_title: true
 # Font configuration
 font:
   normal:
-    family: FiraCode 
-    style: Retina 
+    family: JetBrains Mono 
+    style: Medium 
 
   bold:
-    family: FiraCode 
-    style: Bold
+    family: JetBrains Mono 
+    style: Bold 
 
   italic:
-    family: Fira Mono 
-    style: Italic
+    family: JetBrains Mono 
+    style: Medium Italic 
 
   bold_italic:
-    family: Fira Mono
-    #style: Bold Italic
+    family: JetBrains Mono
+    style: Bold Italic
 
   # Point size
   size: 11.0

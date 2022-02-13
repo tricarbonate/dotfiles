@@ -83,6 +83,10 @@ set shiftwidth=4
 set sr
 set tabstop=4
 
+" set timeout for matchparen, to avoid big lags (20ms)
+let g:matchparen_timeout = 20
+let g:matchparen_insert_timeout = 20
+
 "autocmd BufWritePre *.js Neoformat
 "autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
 "autocmd FileType typescript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\es5
@@ -138,7 +142,7 @@ nnoremap <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
     set linebreak "Should not wrap a word"
 
 
-    set foldenable
+    " set foldenable
 
     set shortmess+=c
     au BufNewFile,BufRead *.ejs set filetype=html
@@ -158,11 +162,19 @@ nnoremap <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
 
     set gfn=Monospace\10
 
-" Return to last edit position when opening files
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+" AUTO COMMANDS
+augroup vimrc_autocmd
+    autocmd!
+
+    " Return to last edit position when opening files
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+
+    autocmd FileType vue syntax sync fromstart
+
+augroup END
 
 " let g:rainbow_active = 1
 " let g:rainbow_conf = {
@@ -195,7 +207,6 @@ local cmp = require'cmp'
 --}
 EOF
 
-autocmd FileType vue syntax sync fromstart
 
 
 " Vim Smoothie constants
