@@ -23,15 +23,15 @@ font:
 
   bold:
     family: JetBrains Mono 
-    style: Bold 
+    style: ExtraBold 
 
   italic:
     family: JetBrains Mono 
-    style: Medium Italic 
+    style: Italic 
 
   bold_italic:
     family: JetBrains Mono
-    style: Bold Italic
+    style: ExtraBold Italic
 
   # Point size
   size: 11.0

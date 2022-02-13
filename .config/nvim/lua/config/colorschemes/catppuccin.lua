@@ -1,12 +1,12 @@
 local catppuccin = require("catppuccin")
 catppuccin.setup({
     transparent_background = true,
-    term_colors = true,
+    term_colors = false,
     styles = {
         comments = "italic",
         functions = "italic",
         keywords = "italic",
-        strings = "NONE",
+        strings = "italic",
         variables = "italic",
     },
     integrations = {

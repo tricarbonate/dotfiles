@@ -1,4 +1,6 @@
+
 require('telescope').setup {
+
     defaults = {
         -- Default configuration for telescope goes here:
         -- config_key = value,
@@ -11,26 +13,53 @@ require('telescope').setup {
             }
         },
 
+        -- previewer = false,
         preview = {
             treesitter = false
         },
 
-        file_ignore_patterns = {"node_modules"}
+        file_ignore_patterns = {
+            "node_modules",
+            ".git",
+            ".cache",
+            ".var",
+            ".local",
+            ".vscode",
+            ".mozilla",
+            ".minecraft",
+            ".stremio-server",
+            ".rustup",
+            ".npm",
+            ".jabba",
+            ".icons",
+            "*.pdf",
+            "*.png",
+            "*.jpeg",
+        },
+
+        previewer = false,
+        disable_devicons = true
     },
-    pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
-    },
-    extensions = {
-        -- Your extension configuration goes here:
-        -- extension_name = {
-        --   extension_config_key = value,
-        -- }
-        -- please take a look at the readme of the extension you want to configure
-    }
+
+
+    pickers = setmetatable({}, {
+        __index = function(_, key)
+            if builtins[key] == nil then
+                error "Invalid key, please check :h telescope.builtin"
+                return
+            end
+            return function(opts)
+                opts = vim.tbl_extend("keep", opts or {}, defaults)
+                builtins[key](opts)
+            end
+        end,
+    })
+
+    -- extensions = {
+    --     -- Your extension configuration goes here:
+    --     -- extension_name = {
+    --     --   extension_config_key = value,
+    --     -- }
+    --     -- please take a look at the readme of the extension you want to configure
+    -- }
 }

@@ -5,7 +5,7 @@ local mapx = require('mapx')
 -----------------------------------------------------------------
 
 -- Telescope File And Patterns Pickers
-mapx.nnoremap("<leader>ff", ':lua require("telescope.builtin").find_files({ find_command = {"rg", "--files", "--hidden", "-g", "!.git",}})<CR>')
+mapx.nnoremap("<leader>ff", ':lua require("telescope.builtin").find_files({ find_command = {"rg", "--files", "--hidden", "-g", "!.git" }})<CR>')
 mapx.nnoremap("<leader>fc", ':lua require("telescope.builtin").colorscheme()<CR>')
 mapx.nnoremap("<leader>fo", ':lua require("telescope.builtin").oldfiles()<CR>')
 mapx.nnoremap("<leader>f:", ':lua require("telescope.builtin").command_history()<CR>')
