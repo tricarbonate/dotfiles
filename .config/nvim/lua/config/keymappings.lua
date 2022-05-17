@@ -17,9 +17,36 @@ mapx.nnoremap("<leader>fa", ':lua require("telescope.builtin").lsp_code_actions(
 mapx.nnoremap("<leader>fd", ':lua require("telescope.builtin").lsp_definitions()<CR>')
 mapx.nnoremap("<leader>fi", ':lua require("telescope.builtin").lsp_implementations()<CR>')
 
+-- LSP
+-- mapx.nnoremap("<leader>li", ":<cmd>LspInfo<CR>")
+-- mapx.nnoremap("<leader>lr", ":<cmd>LspRestart<CR>")
+-- mapx.nnoremap("<leader>ld", ":<cmd>LspStop<CR>")
+-- mapx.nnoremap("<leader>le", ":<cmd>LspStart<CR>")
+
+-- Coc Mappings
+-- mapx.nnoremap("gd", "<Plug>(coc-definition)")
+-- mapx.nnoremap("gy", "<Plug>(coc-type-definition)")
+-- mapx.nnoremap("gi", "<Plug>(coc-implementation)")
+-- mapx.nnoremap("gr", "<Plug>(coc-references)")
+vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", { silent = true })
+vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
+vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", { silent = true })
+vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", { silent = true })
+vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
+vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
+
 -- Telescope Git Pickers
 mapx.nnoremap("<leader>fb", ':lua require("telescope.builtin").git_branches()<CR>')
 mapx.nnoremap("<leader>fs", ':lua require("telescope.builtin").git_status()<CR>')
+
+-- Git mappings (fugitive)
+--
+-- brings up the staged version of the file side by side with the working tree version.
+mapx.nnoremap("<leader>gd", "<cmd>Gdiffsplit<CR>")
 
 -- Vifm
 mapx.nnoremap("<leader>v", '<cmd>Vifm<CR>')
@@ -32,6 +59,10 @@ mapx.nnoremap("gk", ':lua require("harpoon.ui").nav_file(2)<CR>')
 mapx.nnoremap("gl", ':lua require("harpoon.ui").nav_file(3)<CR>')
 mapx.nnoremap("g;", ':lua require("harpoon.ui").nav_file(4)<CR>')
 
+
+-- Navigator Mappings
+-- mapx.nnoremap("gh", ":lua require('Navigator')")
+
 -- Show Highlight Group under cursor
 mapx.map("<F2>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 
@@ -41,6 +72,10 @@ mapx.map("<F2>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 -----------------------------------------------------------------
 ------------- VANILLA MAPPINGS (No Plugins) ---------------------
 -----------------------------------------------------------------
+
+
+-- Neovim reloading
+mapx.nnoremap('<leader>r', '<cmd>source $MYVIMRC<CR>')
 
 -- Navigation in command line
 mapx.cnoremap("<C-h>", "<Home>")
@@ -66,6 +101,7 @@ mapx.nnoremap("Y", "yg_")
 -- Quick save and <Esc>
 mapx.nnoremap("<leader>s", ":w<CR>")
 mapx.nnoremap("<leader>S", ":wq<CR>")
+mapx.nnoremap("<leader>z", "<C-z>") -- suspend vim and go to terminal, ( $fg to go back to vim)
 mapx.inoremap("jk", "<ESC>")
 
 -- Select all file
@@ -92,6 +128,9 @@ mapx.nnoremap("<leader>cd", ":cd %:p:h<CR>")
 mapx.inoremap(",", ",<C-g>u")
 mapx.inoremap("!", "!<C-g>u")
 mapx.inoremap("?", "?<C-g>u")
+
+-- Split lines (inverse of J)
+mapx.nmap("s", "i<Enter><Esc>")
 
 -- Keeps cursor centered when using these commands :
 mapx.nnoremap("n", "nzzzv")

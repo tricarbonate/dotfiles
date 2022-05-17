@@ -41,8 +41,68 @@ return require('packer').startup(function(use)
     use 'ray-x/lsp_signature.nvim'
     use 'kosayoda/nvim-lightbulb' -- show a light bulb when a code action is available
 
-    -- Smoothie
-    use 'REslim30/vim-smoothie'
+   -- use 'neoclide/coc.nvim', {'{do': { -> coc#util#install() } }
+    -- use {
+    --     'neoclide/coc.nvim',
+    -- }
+    use { 'neoclide/coc.nvim', branch = 'release' } 
+
+    -- better quotes text objects ('', "" and ``)
+    use 'kana/vim-textobj-user'
+    use 'beloglazov/vim-textobj-quotes'
+
+    -- which key
+    use 'folke/which-key.nvim'
+
+    -- Navigator
+    use 'numToStr/Navigator.nvim'
+
+    -- Prettier
+    use 'sbdchd/neoformat'
+
+    -- Smooth Scrolling  
+    -- use 'REslim30/vim-smoothie'
+    -- use {
+    --     'karb94/neoscroll.nvim',
+    --     config = function()
+    --         require('neoscroll').setup({
+    --             mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+    --             '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    --             hide_cursor = true,          -- Hide cursor while scrolling
+    --             stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    --             use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    --             respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    --             cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    --             easing_function = nil,       -- Default easing function
+    --             pre_hook = nil,              -- Function to run before the scrolling animation starts
+    --             post_hook = nil,             -- Function to run after the scrolling animation ends
+    --             performance_mode = false,    -- Disable "Performance Mode" on all buffers.
+    --         })
+    --     end
+    -- }
+
+
+    -- stabilize windows and panes
+    use 'luukvbaal/stabilize.nvim' 
+
+    -- Neomake
+    use 'neomake/neomake'
+
+    -- Better escape
+    use {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup({
+                mapping = {"jk", "jj"}, -- a table with mappings to use
+                timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+                clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+                keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+            })
+        end,
+    }
+
+    -- Faster than default filetype.vim
+    use { "nathom/filetype.nvim" }
 
     ---- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -70,6 +130,9 @@ return require('packer').startup(function(use)
 
     -- Discord Rich Presence
     use 'vimsence/vimsence'
+
+    -- automatic transparent background
+    use 'xiyaowong/nvim-transparent'
 
     --use 'glepnir/lspsaga.nvim'
     --use 'onsails/lspkind-nvim'
@@ -108,9 +171,9 @@ return require('packer').startup(function(use)
     ---- use 'TimUntersberger/neogit'
     --use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     --use 'f-person/git-blame.nvim'
-    --use 'tpope/vim-fugitive'
+    use 'tpope/vim-fugitive'
     --use 'tpope/vim-rhubarb'
-
+    
     ---- Easily Create Gists
     --use 'mattn/vim-gist'
     --use 'mattn/webapi-vim'

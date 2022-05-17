@@ -55,6 +55,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'dominikduda/vim_current_word'
     Plug 'unblevable/quick-scope'
 
+    " Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#instal l() } }
+
     " Plugin: UI
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'kyazdani42/nvim-web-devicons'
@@ -63,7 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Plugin: Language specific
     Plug 'lervag/vimtex'
-    Plug 'leafOfTree/vim-vue-plugin'
+    " Plug 'leafOfTree/vim-vue-plugin'
     Plug 'tikhomirov/vim-glsl'
     Plug 'pangloss/vim-javascript'
     Plug 'evanleck/vim-svelte', {'branch': 'main'}
@@ -123,15 +125,27 @@ nnoremap <leader>fh :FSHere<cr>
 au BufEnter *.h let b:fswitchdst = 'c,cpp,m,cc' | let b:fswitchlocs = 'reg:|include.*|src/**|'
 au BufEnter *.cc let b:fswitchdst = "h,hpp"
 
+if has('autocmd')
+    function! ILikeHelpToTheRight()
+        if !exists('w:help_is_moved') || w:help_is_moved != "right"
+            wincmd L
+            let w:help_is_moved = "right"
+        endif
+    endfunction
+    augroup helpfiles
+        autocmd FileType help nested call ILikeHelpToTheRight()
+    augroup END
+endif
+
 "let g:indentLine_char = '┆'
 
-nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap gca <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
+" nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+" nnoremap gca <cmd>lua vim.lsp.buf.code_action()<CR>
+" nnoremap gr <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " Vim Settings
 
@@ -295,6 +309,8 @@ let g:vim_current_word#highlight_current_word = 1
 hi CurrentWord ctermbg=53 gui=bold
 hi CurrentWordTwins ctermbg=237 gui=bold
 
+" au ColorScheme catppuccin hi Normal ctermbg=None
+
 
 " Quick scope settings
 highlight QuickScopePrimary guifg='#bfcd5f' gui=bold ctermfg=155 cterm=bold
@@ -329,14 +345,15 @@ highlight link multiple_cursors_visual Visual
 "
 
 " Cursor blinking
-set guicursor=i:ver1
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-	\,a:blinkwait700-blinkoff300-blinkon250-Cursor/lCursor
-	\,sm:block-blinkwait175-blinkoff150-blinkon175
+" set guicursor=i:ver1
+" set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+" 	\,a:blinkwait700-blinkoff300-blinkon250-Cursor/lCursor
+" 	\,sm:block-blinkwait175-blinkoff150-blinkon175
 
 hi CursorLine     guifg=none            guibg=#002943
 hi Cursor         guifg=#F8F8F8           guibg=#f7d7f7
 hi CursorIM       guifg=#F8F8F8           guibg=#002947"#5F5A60
+
 
 " NERDTree mappings
     nmap <silent> <leader>a :NERDTreeToggle<CR>
@@ -387,14 +404,21 @@ set relativenumber
 
 " Highlights trailing whitespaces
 " highlight ExtraWhitespace ctermbg=red guibg=red
+"
 match ExtraWhitespace /\s\+$/
 au BufWinEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 au BufWinLeave * call clearmatches()
+au FileType python setl shiftwidth=4 tabstop=4
 
 " Remove all trailing whitespaces
 nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+lua <<EOF
+local cp_api = require('catppuccin.api.colors')
+print(cp_api.get_colors());
+EOF
 
 lua <<EOF
   -- Setup nvim-cmp.
@@ -455,3 +479,49 @@ lua <<EOF
  -- }
 EOF
 
+command! -nargs=* Build call s:RunBuild()
+
+function! s:RunBuild()
+    let tmpfile = tempname()
+
+    "build and surpresses build status messages to stdout
+    "(stdout message are not very informative and may be very very long)
+    "Error messages are redirected to temporary file.
+    let buildcmd = "make -j 2> " . tmpfile . " >/dev/null"
+
+    let fname = expand("%")
+    if fname != ""
+        " save current buffer if possible (your bad if file is read only)
+        write
+    endif
+
+    " --- run build command --- 
+    echo "Running make ... "
+    let cmd_output = system(buildcmd)
+
+    "if getfsize(tmpfile) == 0
+    if v:shell_error == 0
+      cclose
+      execute "silent! cfile " . tmpfile
+      echo "Build succeded"
+    else
+
+      let old_efm = &efm
+      set efm=%f:%l:%m
+      execute "silent! cfile " . tmpfile
+      let &efm = old_efm
+
+      botright copen
+    endif
+
+    call delete(tmpfile)
+endfunction
+
+"F5 - run make (in normal mode)
+:nnoremap <F5> :Build
+
+"F5 - run make (in visual mode)
+" :vnoremap  :Build
+
+" "F5 - run make (in insert mode)
+" :inoremap  :Build

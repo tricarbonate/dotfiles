@@ -1,10 +1,17 @@
 local nvim_lsp = require('lspconfig')
 
-require'lspconfig'.ccls.setup{
-    init_options = {
-        filetypes = { "cpp" }
-    }
-}
+-- nvim_lsp.ccls.setup{
+--     init_options = {
+--         compilationDatabaseDirectory = "build";
+--         index = {
+--             threads = 0
+--         };
+--         filetypes = { "cpp", 'h', 'hpp', 'c', 'objc', 'objcpp' };
+--         clang = {
+--             excludeArgs = { "-frounding-math" };
+--         }
+--     }
+-- }
 
 -- Use this function to map the keys only when language server is attached to the current buffer
 local on attach = function(client, burnr)
@@ -38,7 +45,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'svelte', 'ccls', 'vuels' }
+local servers = { 'tsserver', 'svelte' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

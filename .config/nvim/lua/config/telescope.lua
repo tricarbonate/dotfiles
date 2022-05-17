@@ -37,8 +37,8 @@ require('telescope').setup {
             "*.jpeg",
         },
 
-        previewer = false,
-        disable_devicons = true
+        -- previewer = false,
+        -- disable_devicons = true
     },
 
 

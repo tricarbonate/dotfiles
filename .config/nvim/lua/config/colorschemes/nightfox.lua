@@ -9,11 +9,15 @@ nightfox_theme.setup({
         strings = "italic",
     },
 
-    inverse = {},
+    transparent = true,
 
-    colors = {
-        red = "#db4f6d"
-    },
+    inverse = {},
+    terminal_colors = true,
+    background = 'transparent',
+
+    -- colors = {
+    --     -- red = "#db4f6d"
+    -- },
 
     hlgroups = {}
 })

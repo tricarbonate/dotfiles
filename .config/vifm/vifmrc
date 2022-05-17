@@ -54,17 +54,15 @@ set undolevels=100
 
 " Use Vim's format of help file (has highlighting and "hyperlinks").
 " If you would rather use a plain text help file set novimhelp.
-
 set vimhelp
 
 " If you would like to run an executable file when you
 " press return on the file name set this.
-
 set norunexec
 
 " Selected color scheme
 
-colorscheme Default
+colorscheme Normal
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -73,37 +71,34 @@ colorscheme Default
 set timefmt=%m/%d\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
-
 set wildmenu
 
 " Display completions in a form of popup with descriptions of the matches
-
 set wildstyle=popup
+
+
+set dotfiles
+" set dotdirs
 
 " Display suggestions in normal, visual and view modes for keys, marks and
 " registers (at most 5 files).  In other view, when available.
-
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 " Ignore case in search patterns unless it contains at least one uppercase
 " letter
-
 set ignorecase
 set smartcase
 
 " Don't highlight search results automatically
-
 set nohlsearch
 
 " Use increment searching (search while typing)
 set incsearch
 
 " Try to leave some space from cursor to upper/lower border in lists
-
 set scrolloff=4
 
 " Don't do too many requests to slow file systems
-
 if !has('win')
     set slowfs=curlftpfs
 endif
@@ -143,7 +138,7 @@ command! vgrep vim "+grep %a"
 command! reload :write | restart
 
 " Filter out some file/folders
-filter .ccls-cache
+" filter .ccls-cache
 
 " ------------------------------------------------------------------------------
 
@@ -349,8 +344,8 @@ filextype */
 " Explicitly set highlight type for some extensions
 "
 " 256-color terminal
-" fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
-" fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
+fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
+fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
 "
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c

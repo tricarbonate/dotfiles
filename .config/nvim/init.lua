@@ -3,8 +3,13 @@ vim.g.mapleader = ','
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
+-- Do not source the default filetype.vim
+vim.g.did_load_filetypes = 1
+
 -- Install and compile plugins
 require('plugins')
+
+require('stabilize').setup()
 
 -- TODO function to include all files in config/
 -- Import plugins configurations
@@ -18,6 +23,9 @@ require('config/lualine')
 require('config/nvim-web-devicons')
 require('config/nvim-comment')
 require('config/indent-blankline')
+require('config/which-key')
+require('config/nvim-transparent')
+--
 --
 
 -- Colorschemes imports
