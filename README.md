@@ -16,10 +16,11 @@ $ stow -nvt ~ zsh     # this shows the simlink that would be created but does no
 
 
 
-Softwares to install:
+Softwares or things to install:
 
 - nvim
 - tmux
 - alacritty
 - zsh
 - vifm
+- Comic Code Ligatures font (pro font)
