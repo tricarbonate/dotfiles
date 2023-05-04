@@ -15,9 +15,9 @@ require('stabilize').setup()
 -- Import plugins configurations
 require('config/harpoon')
 require('config/tree-sitter')
-require('config/lsp-signature')
+-- require('config/lsp-signature')
 --TODO lightbulb sign is ugly
-require('config/nvim-lightbulb')
+-- require('config/nvim-lightbulb')
 require('config/telescope')
 require('config/lualine')
 require('config/nvim-web-devicons')
@@ -33,7 +33,7 @@ require('config/nvim-transparent')
 require('config/colorschemes/onedarkpro')
 require('config/colorschemes/material')
 require('config/colorschemes/tokyonight')
-require('config/colorschemes/nightfox')
+-- require('config/colorschemes/nightfox')
 require('config/colorschemes/gruvbox-material')
 require('config/colorschemes/github-theme')
 require('config/colorschemes/space-vim-dark')
@@ -41,7 +41,7 @@ require('config/colorschemes/catppuccin')
 -- require('config/colorschemes/papercolor-theme')
 
 -- Default colorscheme here
-local theme = require('catppuccin');
+local theme = require('tokyonight');
 theme.load()
 
 -- Default configuration and key mappings
@@ -52,7 +52,7 @@ require('config/keymappings')
 require('config/autocommands')
 
 -- Setup Lua language server using submodule
-require('config/lsp-config')
+-- require('config/lsp-config')
 
 -- Another option is to groups configuration in one folder
 --require('config')

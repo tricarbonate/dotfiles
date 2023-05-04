@@ -23,9 +23,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vifm/vifm.vim'
 
     " Plugin: Autocompletion
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/nvim-cmp'
+    " Plug 'hrsh7th/cmp-nvim-lsp'
+    " Plug 'hrsh7th/cmp-buffer'
+    " Plug 'hrsh7th/nvim-cmp'
 
     Plug 'Xuyuanp/scrollbar.nvim'
 
@@ -49,8 +49,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
 
     " Plugin: Color Schemes And Text Highlighting
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-    Plug 'nvim-treesitter/playground'
+    " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    " Plug 'nvim-treesitter/playground'
 
     Plug 'dominikduda/vim_current_word'
     Plug 'unblevable/quick-scope'
@@ -58,10 +58,10 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#instal l() } }
 
     " Plugin: UI
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'kyazdani42/nvim-web-devicons'
 
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'neovim/nvim-lspconfig'
 
     " Plugin: Language specific
     Plug 'lervag/vimtex'
@@ -98,9 +98,9 @@ require'nvim-web-devicons'.setup()
 EOF
 
 " lsp_signature setup
-lua << EOF
-require "lsp_signature".setup()
-EOF
+" lua << EOF
+" require "lsp_signature".setup()
+" EOF
 
 " For case insensitive search with / and ?
 set ignorecase
@@ -212,16 +212,16 @@ augroup END
 "       \}
 
 " vimcp config
-lua <<EOF
-local cmp = require'cmp'
---cmp.setup({
+" lua <<EOF
+" local cmp = require'cmp'
+" --cmp.setup({
 
---});
---local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---require('lspconfig')["tsserver"].setup {
-    --capabilities = capabilities
---}
-EOF
+" --});
+" --local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+" --require('lspconfig')["tsserver"].setup {
+"     --capabilities = capabilities
+" --}
+" EOF
 
 
 
@@ -240,49 +240,49 @@ let g:Hexokinase_highlighters = [ 'virtual' ]
 "
 
 " Tree Sitter config
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  --ensure_installed = {
-  --    'javascript',
-  --    'html',
-  --    'css',
-  --    'bash',
-  --    'lua',
-  --    'python',
-  --    'json',
-  --    'cpp',
-  --    'c',
-  --    'java'
-  -- }
-  indent = {
-    enable = false
-  },
-  highlight = {
-      enable = true,
-      use_languagetree = true
-  },
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   --ensure_installed = {
+"   --    'javascript',
+"   --    'html',
+"   --    'css',
+"   --    'bash',
+"   --    'lua',
+"   --    'python',
+"   --    'json',
+"   --    'cpp',
+"   --    'c',
+"   --    'java'
+"   -- }
+"   indent = {
+"     enable = false
+"   },
+"   highlight = {
+"       enable = true,
+"       use_languagetree = true
+"   },
 
-  -- treesitter playground config
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
-    keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
-    },
-  }
-}
-EOF
+"   -- treesitter playground config
+"   playground = {
+"     enable = true,
+"     disable = {},
+"     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+"     persist_queries = false, -- Whether the query persists across vim sessions
+"     keybindings = {
+"       toggle_query_editor = 'o',
+"       toggle_hl_groups = 'i',
+"       toggle_injected_languages = 't',
+"       toggle_anonymous_nodes = 'a',
+"       toggle_language_display = 'I',
+"       focus_language = 'f',
+"       unfocus_language = 'F',
+"       update = 'R',
+"       goto_node = '<cr>',
+"       show_help = '?',
+"     },
+"   }
+" }
+" EOF
 
 "True colors (required for material colorscheme)
 "For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
@@ -417,69 +417,69 @@ au FileType python setl shiftwidth=4 tabstop=4
 " Remove all trailing whitespaces
 nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
-lua <<EOF
-local cp_api = require('catppuccin.api.colors')
-print(cp_api.get_colors());
-EOF
+" lua <<EOF
+" local cp_api = require('catppuccin.api.colors')
+" print(cp_api.get_colors());
+" EOF
 
-lua <<EOF
-  -- Setup nvim-cmp.
-  local cmp = require'cmp'
+" lua <<EOF
+"   -- Setup nvim-cmp.
+"   local cmp = require'cmp'
 
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-      end,
-    },
+"   cmp.setup({
+"     snippet = {
+"       expand = function(args)
+"         vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+"         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+"         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+"         -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+"       end,
+"     },
 
 
-    mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      --['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<C-j>'] = function(fallback)
-        if cmp.visible() then
-            cmp.select_next_item()
-        elseif luasnip.exanpd_or_jumpable() then
-            luasnip.expand_or_jump()
-        else
-            fallback()
-        end
-    end,
-      ['<C-k>'] = function(fallback)
-        if cmp.visible() then
-            cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-        else
-            fallback()
-        end
-    end
-    },
+"     mapping = {
+"       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+"       ['<C-f>'] = cmp.mapping.scroll_docs(4),
+"       ['<C-Space>'] = cmp.mapping.complete(),
+"       ['<C-e>'] = cmp.mapping.close(),
+"       --['<CR>'] = cmp.mapping.confirm({ select = true }),
+"       ['<C-j>'] = function(fallback)
+"         if cmp.visible() then
+"             cmp.select_next_item()
+"         elseif luasnip.exanpd_or_jumpable() then
+"             luasnip.expand_or_jump()
+"         else
+"             fallback()
+"         end
+"     end,
+"       ['<C-k>'] = function(fallback)
+"         if cmp.visible() then
+"             cmp.select_prev_item()
+"         elseif luasnip.jumpable(-1) then
+"             luasnip.jump(-1)
+"         else
+"             fallback()
+"         end
+"     end
+"     },
 
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
+"     sources = cmp.config.sources({
+"       { name = 'nvim_lsp' },
+"       { name = 'vsnip' }, -- For vsnip users.
+"       -- { name = 'luasnip' }, -- For luasnip users.
+"       -- { name = 'ultisnips' }, -- For ultisnips users.
+"       -- { name = 'snippy' }, -- For snippy users.
+"     }, {
+"       { name = 'buffer' },
+"     })
+"   })
 
-  -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  --require('lspconfig')[%YOUR_LSP_SERVER%].setup {
-  --  capabilities = capabilities
- -- }
-EOF
+"   -- Setup lspconfig.
+"   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+"   --require('lspconfig')[%YOUR_LSP_SERVER%].setup {
+"   --  capabilities = capabilities
+"  -- }
+" EOF
 
 command! -nargs=* Build call s:RunBuild()
 

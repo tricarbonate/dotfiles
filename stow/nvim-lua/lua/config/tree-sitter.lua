@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+    -- ensure_installed = "maintained",
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,

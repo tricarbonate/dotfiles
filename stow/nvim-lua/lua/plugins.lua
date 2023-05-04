@@ -35,11 +35,11 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
 
     -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'jose-elias-alvarez/null-ls.nvim'
-    use 'kabouzeid/nvim-lspinstall'
-    use 'ray-x/lsp_signature.nvim'
-    use 'kosayoda/nvim-lightbulb' -- show a light bulb when a code action is available
+    -- use 'neovim/nvim-lspconfig'
+    -- use 'jose-elias-alvarez/null-ls.nvim'
+    -- use 'kabouzeid/nvim-lspinstall'
+    -- use 'ray-x/lsp_signature.nvim'
+    -- use 'kosayoda/nvim-lightbulb' -- show a light bulb when a code action is available
 
    -- use 'neoclide/coc.nvim', {'{do': { -> coc#util#install() } }
     -- use {
