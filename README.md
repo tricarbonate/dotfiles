@@ -15,7 +15,6 @@ $ stow -nvt ~ zsh     # this shows the simlink that would be created but does no
 
 
 
-
 Softwares or things to install:
 
 - nvim

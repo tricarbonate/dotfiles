@@ -27,7 +27,7 @@ DISABLE_AUTO_UPDATE="false"
 
 DISABLE_MAGIC_FUNCTIONS="true"
 
-for zsh_file (~/zsh/*.zsh) source $zsh_file
+# for zsh_file (~/zsh/*.zsh) source $zsh_file
 
 export TERM=xterm-256color vim
 
@@ -56,7 +56,7 @@ eval $(thefuck --alias)
 
 
 # Aliases
-alias todo="todo.sh"
+# alias todo="todo.sh"
 alias cd.="cd ~/Documents/tricarbonate/dotfiles"
 alias cdrepos="cd ~/Documents/tricarbonate"
 
@@ -91,4 +91,12 @@ alias tb='sudo docker run --rm -it -e "HOST_CW_DIR=${PWD}" -e "CALLING_HOST_NAME
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=/home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/crazyflie-firmware" -e "CALLING_HOST_NAME=Tricarbonate" -v /home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/crazyflie-firmware:/tb-module -v /home/tricarbonate/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
 #
 #
+
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
+
+# For systemc to be able to be compiled
+export SYSTEMC_HOME=/usr/local/systemc-2.3.3
 
