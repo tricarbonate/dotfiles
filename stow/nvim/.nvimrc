@@ -46,7 +46,6 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Plugin: Git Plugins
     Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
 
     " Plugin: Color Schemes And Text Highlighting
     " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -77,6 +76,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tweekmonster/startuptime.vim'
 
 call plug#end()
+
+
+autocmd WinNew * wincmd L
 
 set ai
 set si
@@ -159,6 +161,9 @@ endif
 
 
     " set foldenable
+    set nofoldenable
+    au WinEnter * set nofen
+    au WinLeave * set nofen
 
     set shortmess+=c
     au BufNewFile,BufRead *.ejs set filetype=html
