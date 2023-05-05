@@ -11,6 +11,7 @@ declare -a package_configs=(
   "nvim-lua ~/.config/nvim/"
   "alacritty ~/.config/alacritty/"
   "vifm ~/.config/vifm"
+  "ssh ~/.ssh"
 )
 
 setopt shwordsplit
