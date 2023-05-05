@@ -78,7 +78,8 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 
-autocmd WinNew * wincmd L
+" automatically split vertically when spawning new window
+" autocmd WinNew * wincmd L
 
 set ai
 set si
@@ -141,16 +142,6 @@ if has('autocmd')
     augroup END
 endif
 
-"let g:indentLine_char = '┆'
-
-" nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-" nnoremap gca <cmd>lua vim.lsp.buf.code_action()<CR>
-" nnoremap gr <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
-
 " Vim Settings
 
     set encoding=UTF-8
@@ -197,38 +188,6 @@ augroup vimrc_autocmd
 
 augroup END
 
-" let g:rainbow_active = 1
-" let g:rainbow_conf = {
-"       \ 'guifgs': ['#f92672', '#00afff', '#268bd2', '#93a1a1', '#dc322f',
-"       \   '#6c71c4', '#b58900', '#657b83', '#d33682', '#719e07', '#2aa198'],
-"       \ 'ctermfgs': ['9', '127', '4', '1', '3', '12', '5', '2', '6', '33',
-"       \   '104', '124', '7', '39'],
-"       \ 'separately' : {
-"       \   'gitconfig' : 0,
-"       \   'wiki' : 0,
-"       \   'md' : 0,
-"       \   'help' : 0,
-"       \   'vue' : 0,
-"       \   'cfg' : 0,
-"       \   'toml' : 0,
-"       \   'qf' : 0,
-"       \   'man' : 0,
-"       \ }
-"       \}
-
-" vimcp config
-" lua <<EOF
-" local cmp = require'cmp'
-" --cmp.setup({
-
-" --});
-" --local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-" --require('lspconfig')["tsserver"].setup {
-"     --capabilities = capabilities
-" --}
-" EOF
-
-
 
 " Vim Smoothie constants
 let g:smoothie_enabled = 1
@@ -240,74 +199,11 @@ let g:smoothie_speed_exponentiation_factor = 0.97 " lower value produce longer a
 " kexokinase highlighter type
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
-" Preprocessed language highligting for Svelte
-"let g:svelte_preprocessors = ['typescript', 'sass', 'scss']
-"
-
-" Tree Sitter config
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   --ensure_installed = {
-"   --    'javascript',
-"   --    'html',
-"   --    'css',
-"   --    'bash',
-"   --    'lua',
-"   --    'python',
-"   --    'json',
-"   --    'cpp',
-"   --    'c',
-"   --    'java'
-"   -- }
-"   indent = {
-"     enable = false
-"   },
-"   highlight = {
-"       enable = true,
-"       use_languagetree = true
-"   },
-
-"   -- treesitter playground config
-"   playground = {
-"     enable = true,
-"     disable = {},
-"     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-"     persist_queries = false, -- Whether the query persists across vim sessions
-"     keybindings = {
-"       toggle_query_editor = 'o',
-"       toggle_hl_groups = 'i',
-"       toggle_injected_languages = 't',
-"       toggle_anonymous_nodes = 'a',
-"       toggle_language_display = 'I',
-"       focus_language = 'f',
-"       unfocus_language = 'F',
-"       update = 'R',
-"       goto_node = '<cr>',
-"       show_help = '?',
-"     },
-"   }
-" }
-" EOF
-
 "True colors (required for material colorscheme)
 "For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 if (has('nvim'))
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
-
-"set t_ZH=^[[3m
-"set t_ZR=^[[23m
-"set term=xterm-256color
-
-"call g:SetHighlight('TSType', '', '', 'italic')
-
-" Overrides some of the colors from tokyonight
-"highlight CursorLineNr guifg=#ffd0d7
-"highlight Identifier guifg=#5576ff
-"highlight Function guifg=#dd94cc
-"highlight String cterm=italic
-"highlight Comment cterm=italic
-"hi TSBoolean cterm=italic
 
 "Current word and word occurrences highlight
 let g:vim_current_word#enabled = 1
@@ -316,7 +212,8 @@ let g:vim_current_word#highlight_current_word = 1
 hi CurrentWord ctermbg=53 gui=bold
 hi CurrentWordTwins ctermbg=237 gui=bold
 
-" au ColorScheme catppuccin hi Normal ctermbg=None
+set termguicolors
+set background=dark
 
 
 " Quick scope settings
@@ -326,9 +223,6 @@ highlight QuickScopeSecondary guifg='#5fffff' gui=bold ctermfg=81 cterm=bold
 "Multiple cursors highlighting
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
-
-" Auto source nvimrc when saving
-" autocmd! BufWritePost .nvimrc source $NVIMRC | echom "Reloaded $NVIMRC"
 
 " Window creation/supression
     function! WinMove(key)
@@ -422,70 +316,6 @@ au FileType python setl shiftwidth=4 tabstop=4
 " Remove all trailing whitespaces
 nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
-" lua <<EOF
-" local cp_api = require('catppuccin.api.colors')
-" print(cp_api.get_colors());
-" EOF
-
-" lua <<EOF
-"   -- Setup nvim-cmp.
-"   local cmp = require'cmp'
-
-"   cmp.setup({
-"     snippet = {
-"       expand = function(args)
-"         vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-"         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-"         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-"         -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-"       end,
-"     },
-
-
-"     mapping = {
-"       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-"       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-"       ['<C-Space>'] = cmp.mapping.complete(),
-"       ['<C-e>'] = cmp.mapping.close(),
-"       --['<CR>'] = cmp.mapping.confirm({ select = true }),
-"       ['<C-j>'] = function(fallback)
-"         if cmp.visible() then
-"             cmp.select_next_item()
-"         elseif luasnip.exanpd_or_jumpable() then
-"             luasnip.expand_or_jump()
-"         else
-"             fallback()
-"         end
-"     end,
-"       ['<C-k>'] = function(fallback)
-"         if cmp.visible() then
-"             cmp.select_prev_item()
-"         elseif luasnip.jumpable(-1) then
-"             luasnip.jump(-1)
-"         else
-"             fallback()
-"         end
-"     end
-"     },
-
-"     sources = cmp.config.sources({
-"       { name = 'nvim_lsp' },
-"       { name = 'vsnip' }, -- For vsnip users.
-"       -- { name = 'luasnip' }, -- For luasnip users.
-"       -- { name = 'ultisnips' }, -- For ultisnips users.
-"       -- { name = 'snippy' }, -- For snippy users.
-"     }, {
-"       { name = 'buffer' },
-"     })
-"   })
-
-"   -- Setup lspconfig.
-"   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-"   --require('lspconfig')[%YOUR_LSP_SERVER%].setup {
-"   --  capabilities = capabilities
-"  -- }
-" EOF
-
 command! -nargs=* Build call s:RunBuild()
 
 function! s:RunBuild()
@@ -527,8 +357,3 @@ endfunction
 "F5 - run make (in normal mode)
 :nnoremap <F5> :Build
 
-"F5 - run make (in visual mode)
-" :vnoremap  :Build
-
-" "F5 - run make (in insert mode)
-" :inoremap  :Build

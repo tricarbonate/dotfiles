@@ -43,10 +43,12 @@ vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C
 mapx.nnoremap("<leader>fb", ':lua require("telescope.builtin").git_branches()<CR>')
 mapx.nnoremap("<leader>fs", ':lua require("telescope.builtin").git_status()<CR>')
 
--- Git mappings (fugitive)
+-- Git mappings (Git-Fugitive)
 --
 -- brings up the staged version of the file side by side with the working tree version.
 mapx.nnoremap("<leader>gd", "<cmd>Gdiffsplit<CR>")
+mapx.nnoremap("<leader>gg", "<cmd>vertical Git<CR>")
+mapx.nnoremap("<leader>gc", "<cmd>Git commit<CR>")
 
 -- Vifm
 mapx.nnoremap("<leader>v", '<cmd>Vifm<CR>')
@@ -97,6 +99,9 @@ mapx.nnoremap("<leader>k", ":m .-2<CR>==")
 
 -- Copy the last non-blank character
 mapx.nnoremap("Y", "yg_")
+
+-- turns off highlithing until the next search
+mapx.nnoremap("<C-m>", "<cmd>noh<CR>")
 
 -- Quick save and <Esc>
 mapx.nnoremap("<leader>s", ":w<CR>")
