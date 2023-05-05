@@ -49,6 +49,7 @@ mapx.nnoremap("<leader>fs", ':lua require("telescope.builtin").git_status()<CR>'
 mapx.nnoremap("<leader>gd", "<cmd>Gdiffsplit<CR>")
 mapx.nnoremap("<leader>gg", "<cmd>vertical Git<CR>")
 mapx.nnoremap("<leader>gc", "<cmd>Git commit<CR>")
+mapx.nnoremap("<leader>gp", "<cmd>Git push<CR>")
 
 -- Vifm
 mapx.nnoremap("<leader>v", '<cmd>Vifm<CR>')
