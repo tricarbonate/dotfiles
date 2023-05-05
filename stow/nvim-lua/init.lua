@@ -57,5 +57,6 @@ require('config/autocommands')
 -- Another option is to groups configuration in one folder
 --require('config')
 
+-- vim.cmd[[colorscheme tokyonight]]
 vim.cmd('source ~/.nvimrc')
 

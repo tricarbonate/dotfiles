@@ -78,7 +78,6 @@ return require('packer').startup(function(use)
     use 'NLKNguyen/papercolor-theme'
     use 'lifepillar/vim-solarized8'
     use 'marko-cerovac/material.nvim'
-    use 'ghifarit53/tokyonight-vim'
     use 'EdenEast/nightfox.nvim'
     use 'sainnhe/gruvbox-material'
     use 'projekt0n/github-nvim-theme'
