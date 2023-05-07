@@ -95,6 +95,9 @@ return require('packer').startup(function(use)
     -- automatic transparent background
     use 'xiyaowong/nvim-transparent'
 
+    -- beautiful window separator
+    -- use 'nvim-zh/colorful-winsep.nvim'
+
     --use 'glepnir/lspsaga.nvim'
     --use 'onsails/lspkind-nvim'
     --use 'mfussenegger/nvim-jdtls'

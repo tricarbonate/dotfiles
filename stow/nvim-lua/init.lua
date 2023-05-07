@@ -25,6 +25,7 @@ require('config/nvim-comment')
 require('config/indent-blankline')
 require('config/which-key')
 require('config/nvim-transparent')
+require('config/colorful-winsep')
 --
 --
 

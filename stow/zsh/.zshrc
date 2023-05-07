@@ -96,6 +96,7 @@ export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/nvim-linux64/bin
 
 # For systemc to be able to be compiled
 export SYSTEMC_HOME=/usr/local/systemc-2.3.3

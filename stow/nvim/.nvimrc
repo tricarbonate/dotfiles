@@ -209,8 +209,8 @@ endif
 let g:vim_current_word#enabled = 1
 let g:vim_current_word#highlight_twins = 1
 let g:vim_current_word#highlight_current_word = 1
-hi CurrentWord ctermbg=53 gui=bold
-hi CurrentWordTwins ctermbg=237 gui=bold
+hi CurrentWord gui=bold
+hi CurrentWordTwins gui=bold
 
 set termguicolors
 set background=dark
@@ -294,7 +294,10 @@ nnoremap <silent> <Leader>nd :call search('\d\+')<CR>
 
 "Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-m> :nohl<CR><C-L> ""
+"
+
+" nmap <C-m> <Nop>
+nnoremap <C-M> :nohl<CR><C-L> ""
 cnoremap w!! w !sudo tee % >/dev/null<CR>
 
 " Autocompletion setup with nvim-cmp
