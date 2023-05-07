@@ -13,6 +13,7 @@ $ cat ~/.ssh/id_rsa.pub
 
 4 - Add the PUBLIC key to Github config at https://github.com/settings/keys
 (give the public key a good name like "personal laptop" for example)
+(the type of the key must be "authentication key", and not "signing key")
 
 
 
