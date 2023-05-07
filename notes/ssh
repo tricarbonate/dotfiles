@@ -12,3 +12,12 @@ $ ssh-add ~/.ssh/id_rsa
 $ cat ~/.ssh/id_rsa.pub
 
 4 - Add the PUBLIC key to Github config at https://github.com/settings/keys
+(give the public key a good name like "personal laptop" for example)
+
+
+
+
+To automatically use the ssh key when pushing / pulling a repo:
+$ git remote remove origin
+$ git remote add origin git@github.com:user_name/repo_name.git
+$ git push --set-upstream origin branch_name
