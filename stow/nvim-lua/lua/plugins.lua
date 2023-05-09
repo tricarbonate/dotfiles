@@ -96,7 +96,8 @@ return require('packer').startup(function(use)
     use 'xiyaowong/nvim-transparent'
 
     -- beautiful window separator
-    -- use 'nvim-zh/colorful-winsep.nvim'
+    use 'nvim-zh/colorful-winsep.nvim'
+    -- use { 'beauwilliams/focus.nvim', config = function() require("focus").setup() end }
 
     --use 'glepnir/lspsaga.nvim'
     --use 'onsails/lspkind-nvim'
