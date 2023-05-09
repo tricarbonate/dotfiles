@@ -16,6 +16,8 @@ require('stabilize').setup()
 require('config/harpoon')
 require('config/tree-sitter')
 -- require('config/lsp-signature')
+--require('config/tree-sitter')
+require('config/lsp-signature')
 --TODO lightbulb sign is ugly
 -- require('config/nvim-lightbulb')
 require('config/telescope')
@@ -26,6 +28,9 @@ require('config/indent-blankline')
 require('config/which-key')
 require('config/nvim-transparent')
 require('config/colorful-winsep')
+require('config/hop')
+--
+--
 
 -- Colorschemes imports
 -- TODO: function to include them all
@@ -36,7 +41,7 @@ require('config/colorschemes/tokyonight')
 require('config/colorschemes/gruvbox-material')
 require('config/colorschemes/github-theme')
 require('config/colorschemes/space-vim-dark')
-require('config/colorschemes/catppuccin')
+--require('config/colorschemes/catppuccin')
 -- require('config/colorschemes/papercolor-theme')
 
 -- Default colorscheme here

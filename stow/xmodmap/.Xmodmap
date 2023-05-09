@@ -22,4 +22,4 @@ add mod3 = KP_Space
 
 ! Set Caps_Lock as Escape
 clear Lock
-keycode 0x42 = Escape
+keycode 66 = Escape

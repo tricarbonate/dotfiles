@@ -17,6 +17,13 @@ mapx.nnoremap("<leader>fa", ':lua require("telescope.builtin").lsp_code_actions(
 mapx.nnoremap("<leader>fd", ':lua require("telescope.builtin").lsp_definitions()<CR>')
 mapx.nnoremap("<leader>fi", ':lua require("telescope.builtin").lsp_implementations()<CR>')
 
+-- Telescope Git Pickers
+mapx.nnoremap("<leader>fb", ':lua require("telescope.builtin").git_branches()<CR>')
+mapx.nnoremap("<leader>fs", ':lua require("telescope.builtin").git_status()<CR>')
+mapx.nnoremap("<leader>fl", ':lua require("telescope.builtin").git_commits()<CR>')
+
+mapx.nnoremap("<leader>0", ':CocCommand rest-client.request<CR>')
+
 -- LSP
 -- mapx.nnoremap("<leader>li", ":<cmd>LspInfo<CR>")
 -- mapx.nnoremap("<leader>lr", ":<cmd>LspRestart<CR>")
@@ -39,9 +46,11 @@ vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {norem
 vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
 
--- Telescope Git Pickers
-mapx.nnoremap("<leader>fb", ':lua require("telescope.builtin").git_branches()<CR>')
-mapx.nnoremap("<leader>fs", ':lua require("telescope.builtin").git_status()<CR>')
+-- Hop Mappings
+-- local hop = require('hop')
+-- local directions = require('hop.hint').HintDirection
+-- vim.api.nvim_set_keymap("n", "f", "<cmd>HopWord<CR>", { silent = true })
+
 
 -- Git mappings (Git-Fugitive)
 --

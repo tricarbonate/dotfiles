@@ -77,14 +77,15 @@ function ta(){
 # system-wide keyboard remappings
 xmodmap ~/.Xmodmap
 
-alias vim="nvim"
+#alias vim="nvim"
+alias nvim="~/nvim-linux64/bin/nvim"
 
 set -o vi
 
 
 export PKG_CONFIG=/usr/bin/pkg-config
 
- #bitcraze toolbelt alias
+#bitcraze toolbelt alias
 alias tb='sudo docker run --rm -it -e "HOST_CW_DIR=${PWD}" -e "CALLING_HOST_NAME=$(hostname)" -e "CALLING_UID"=$UID -e "CALLING_OS"=$(uname) -v ${PWD}:/tb-module -v $HOME/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=/home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/app" -e "CALLING_HOST_NAME=Tricarbonate" -v /home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/app:/tb-module -v /home/tricarbonate/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=${PWD}" -e "CALLING_HOST_NAME=${hostname}" -e "CALLING_UID=$UID" -e "CALLING_OS=${uname}" -v $PWD}:/tb-module -v ${HOME}/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
@@ -101,3 +102,16 @@ export PATH=$PATH:~/nvim-linux64/bin
 # For systemc to be able to be compiled
 export SYSTEMC_HOME=/usr/local/systemc-2.3.3
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+fortune | ponysay
+
+export ANDROID_HOME=/usr/lib/android-sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

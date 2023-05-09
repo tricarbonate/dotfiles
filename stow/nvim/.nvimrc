@@ -88,6 +88,8 @@ set shiftwidth=4
 set sr
 set tabstop=4
 
+
+
 " set timeout for matchparen, to avoid big lags (20ms)
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20
