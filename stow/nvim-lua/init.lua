@@ -17,7 +17,7 @@ require('config/harpoon')
 require('config/tree-sitter')
 -- require('config/lsp-signature')
 --require('config/tree-sitter')
-require('config/lsp-signature')
+--require('config/lsp-signature')
 --TODO lightbulb sign is ugly
 -- require('config/nvim-lightbulb')
 require('config/telescope')
