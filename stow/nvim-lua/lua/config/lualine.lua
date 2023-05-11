@@ -1,7 +1,7 @@
 require('lualine').setup({
     options = {
         icons_enabled = true,
-        theme = require('config/lualine-theme').theme(),
+        theme = 'nordic',
         -- theme = "catppuccin",
         always_divide_middle = true
     },

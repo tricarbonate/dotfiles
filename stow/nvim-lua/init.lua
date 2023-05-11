@@ -41,11 +41,12 @@ require('config/colorschemes/tokyonight')
 require('config/colorschemes/gruvbox-material')
 require('config/colorschemes/github-theme')
 require('config/colorschemes/space-vim-dark')
+require('config/colorschemes/nordic')
 --require('config/colorschemes/catppuccin')
 -- require('config/colorschemes/papercolor-theme')
 
 -- Default colorscheme here
-local theme = require('tokyonight');
+local theme = require('nordic');
 theme.load()
 
 -- Default configuration and key mappings

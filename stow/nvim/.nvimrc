@@ -362,3 +362,5 @@ endfunction
 "F5 - run make (in normal mode)
 :nnoremap <F5> :Build
 
+set cmdheight=0
+
