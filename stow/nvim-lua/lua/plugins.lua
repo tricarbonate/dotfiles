@@ -138,6 +138,7 @@ return require('packer').startup(function(use)
         'catppuccin/nvim', as = 'catppuccin'
     })
     use {'pineapplegiant/spaceduck', branch = 'main'}
+    use 'AlexvZyl/nordic.nvim'
 
 
     -- Discord Rich Presence
