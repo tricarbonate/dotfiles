@@ -31,7 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     "Plug 'junegunn/fzf.vim'
     " Plugin: Text Editing
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
     "Plug 'tpope/vim-sleuth'
     "Plug 'editorconfig/editorconfig-vim'
 
