@@ -27,7 +27,7 @@ require('config/nvim-comment')
 require('config/indent-blankline')
 require('config/which-key')
 require('config/nvim-transparent')
-require('config/colorful-winsep')
+--require('config/colorful-winsep')
 require('config/hop')
 --
 --
@@ -36,7 +36,7 @@ require('config/hop')
 -- TODO: function to include them all
 require('config/colorschemes/onedarkpro')
 require('config/colorschemes/material')
-require('config/colorschemes/tokyonight')
+--require('config/colorschemes/tokyonight')
 -- require('config/colorschemes/nightfox')
 require('config/colorschemes/gruvbox-material')
 require('config/colorschemes/github-theme')
