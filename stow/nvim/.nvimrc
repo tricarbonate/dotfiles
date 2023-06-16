@@ -87,7 +87,7 @@ set et
 set shiftwidth=4
 set sr
 set tabstop=4
-
+set clipboard=unnamedplus
 
 
 " set timeout for matchparen, to avoid big lags (20ms)
