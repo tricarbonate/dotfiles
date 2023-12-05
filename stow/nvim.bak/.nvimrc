@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'editorconfig/editorconfig-vim'
 
     " TODO: Investiger ce plugin
-    Plug 'andymass/vim-matchup'
+    " Plug 'andymass/vim-matchup'
     Plug 'terryma/vim-multiple-cursors'
 
     Plug 'derekwyatt/vim-fswitch'
@@ -189,6 +189,11 @@ augroup vimrc_autocmd
     autocmd FileType vue syntax sync fromstart
 
 augroup END
+
+syntax on
+filetype plugin indent on
+
+au BufRead, BufNewFile *.html set filetype=html
 
 
 " Vim Smoothie constants

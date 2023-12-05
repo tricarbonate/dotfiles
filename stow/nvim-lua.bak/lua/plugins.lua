@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
     use 'vifm/vifm.vim'
 
+    use 'prisma/vim-prisma'
+
     use 'nvim-lualine/lualine.nvim'
 
     use 'ThePrimeagen/harpoon'
