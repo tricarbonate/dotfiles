@@ -23,3 +23,9 @@ Softwares or things to install:
 - zsh
 - vifm
 - Comic Code Ligatures font (pro font)
+
+
+Coc package to install:
+coc-pairs
+coc-prettier
+
