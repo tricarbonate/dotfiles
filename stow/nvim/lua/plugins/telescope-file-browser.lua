@@ -15,6 +15,12 @@ return {
         end,
         desc = "Find Plugin Files",
       },
+      {
+        "<leader>fc",
+        function()
+          require("telescope.builtin").colorscheme({})
+        end,
+      },
     },
 
     config = function(_, opts)
