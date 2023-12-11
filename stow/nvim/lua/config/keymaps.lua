@@ -10,8 +10,8 @@ keymap.set("n", "<leader>wl", ":vsplit<return>")
 --keymap.set("n", "<C-j>", ":split<return>")
 --keymap.set("n", "<C-l>", ":lua createOrMoveToRight()<CR>")
 
--- Clears last highlight
-keymap.set("n", "<C-m>", ":nohlsearch<CR>")
+-- Clears last highlight (already done by default with <esc> from lazyvim)
+-- keymap.set("n", "<C-m>", ":nohlsearch<CR>")
 
 -- scroll up and down with m and U
 keymap.set("n", "m", "<C-d>")
@@ -22,3 +22,12 @@ keymap.set("n", "<leader>lr", ":luafile %")
 
 -- use telescope file browser (no more vifm youhou)
 keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+
+-- Add undo break-points
+keymap.set("i", "<cr>", "<cr><c-g>u")
+
+-- Changes or link a specific highlight group to another
+-- vim.api.nvim_set_hl(0, "@String", { link = "Comment" })
+
+-- use comments
+-- keymap.set("n", "<leader>cc", "gcc")

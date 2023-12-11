@@ -9,7 +9,7 @@ window:
     y: 0
   dynamic_padding: true
   decorations: none
-  opacity: 0.90
+  opacity: 0.95
   dynamic_title: true
 
 scrolling:
@@ -19,7 +19,8 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Comic Code Ligatures
+    # family: Comic Code Ligatures
+    family: Monaspace Argon Medium
     style: Regular 
 
   bold:
@@ -27,12 +28,15 @@ font:
     style: Bold 
 
   italic:
-    family: Comic Code Ligatures 
+    # family: Comic Code Ligatures
+    family: Monaspace Radon 
+    # family: Monaspace Argon Medium
     style: Italic 
 
   bold_italic:
-    family: Comic Code Ligatures
-    style: Bold Italic
+    family: Monaspace Argon Medium
+    style: Italic
+    
 
   # Point size
   size: 11.0

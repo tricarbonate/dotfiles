@@ -4,3 +4,5 @@
 
 -- default lazyvim leader is <space>, set it to ,
 vim.g.mapleader = ","
+
+vim.opt.cursorline = false -- disables highlighting of the current line
