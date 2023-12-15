@@ -47,6 +47,14 @@ vim.cmd([[
     nnoremap <silent> <C-l> :call WinMove('l')<CR>
 ]])
 
+-- Harpoon Mappings
+keymap.set("n", "gm", ":lua require('harpoon.mark').add_file()<CR>")
+keymap.set("n", "gh", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
+keymap.set("n", "gj", ':lua require("harpoon.ui").nav_file(1)<CR>')
+keymap.set("n", "gk", ':lua require("harpoon.ui").nav_file(2)<CR>')
+keymap.set("n", "gl", ':lua require("harpoon.ui").nav_file(3)<CR>')
+keymap.set("n", "g;", ':lua require("harpoon.ui").nav_file(4)<CR>')
+
 -- Changes or link a specific highlight group to another
 -- vim.api.nvim_set_hl(0, "@String", { link = "Comment" })
 
