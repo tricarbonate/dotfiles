@@ -102,13 +102,13 @@ export PATH=$PATH:~/nvim-linux64/bin
 # For systemc to be able to be compiled
 export SYSTEMC_HOME=/usr/local/systemc-2.3.3
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-fortune | ponysay
+# fortune | ponysay
 
 export ANDROID_HOME=/usr/lib/android-sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
