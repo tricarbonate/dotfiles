@@ -7,19 +7,17 @@ return {
 
     keys = {
       {
-        "<leader>fP",
-        function()
-          require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
-          })
-        end,
-        desc = "Find Plugin Files",
-      },
-      {
         "<leader>fc",
         function()
           require("telescope.builtin").colorscheme({})
         end,
+      },
+      {
+        "<leader>fd",
+        function()
+          require("telescope.builtin").find_files({ cwd = "~/.dotfiles" })
+        end,
+        desc = "Find in dotfiles",
       },
     },
 
