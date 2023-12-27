@@ -15,6 +15,7 @@ return {
         "vue-language-server",
         "rust-analyzer",
         "clangd",
+        "wgsl-analyzer",
       })
     end,
   },

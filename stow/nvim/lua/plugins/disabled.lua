@@ -1,4 +1,4 @@
-return {
-  "nvimdev/dashboard-nvim",
-  enabled = false,
-}
+-- return {
+--   "nvimdev/dashboard-nvim",
+--   enabled = false,
+-- }
