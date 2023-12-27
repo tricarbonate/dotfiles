@@ -4,6 +4,7 @@ return {
     opts = {
       ensure_installed = {
         "cpp",
+        "lua",
         "http",
         "rust",
         "svelte",
@@ -13,6 +14,7 @@ return {
         "cmake",
         "sql",
         "bash",
+        "wgsl",
       },
     },
   },

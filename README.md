@@ -29,3 +29,7 @@ Coc package to install:
 coc-pairs
 coc-prettier
 
+
+## Fonts
+Fonts folder contains most common fonts I use, these must be copied into the correct folder for them to work
+usually /usr/share/fonts/ for linux

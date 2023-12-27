@@ -6,3 +6,7 @@
 vim.g.mapleader = ","
 
 vim.opt.cursorline = false -- disables highlighting of the current line
+vim.opt.swapfile = false -- disables swap files
+vim.opt.showtabline = 0 -- tabline is never shown
+
+vim.filetype.add({ extension = { wgsl = "wgsl" } })
