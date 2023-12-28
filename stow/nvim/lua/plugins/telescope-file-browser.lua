@@ -15,7 +15,7 @@ return {
       {
         "<leader>fd",
         function()
-          require("telescope.builtin").find_files({ cwd = "~/.dotfiles" })
+          require("telescope.builtin").find_files({ cwd = "~/.dotfiles", hidden = true })
         end,
         desc = "Find in dotfiles",
       },
