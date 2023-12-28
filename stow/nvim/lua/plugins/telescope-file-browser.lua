@@ -19,6 +19,13 @@ return {
         end,
         desc = "Find in dotfiles",
       },
+      {
+        "<leader>fh",
+        function()
+          vim.cmd([[Telescope highlights]])
+        end,
+        desc = "Show all Treesitter highlight groups",
+      },
     },
 
     config = function(_, opts)
