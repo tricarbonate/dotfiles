@@ -26,6 +26,8 @@ return {
           NormalFloat = { bg = "none" },
           FloatBorder = { bg = "none" },
           FloatTitle = { bg = "none" },
+          Comment = { italic = true },
+          Docs = { fg = "none" },
         }
       end,
     },
@@ -34,20 +36,23 @@ return {
   {
     "aktersnurra/no-clown-fiesta.nvim",
     transparent = false,
-    opts = {
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = true, bold = true },
-        strings = { italic = true },
-        type = { bold = true },
-      },
-      on_highlights = function(highlights, colors)
-        highlights.String = {
-          fg = colors.green, -- must be specified again
-          style = "italic",
-        }
-      end,
-    },
+    config = function()
+      print("hello")
+    end,
+    -- opts = {
+    --   styles = {
+    --     comments = { italic = true },
+    --     keywords = { italic = true, bold = true },
+    --     strings = { italic = true },
+    --     type = { bold = true },
+    --   },
+    --   on_highlights = function(highlights, colors)
+    --     highlights.String = {
+    --       fg = colors.green, -- must be specified again
+    --       style = "italic",
+    --     }
+    --   end,
+    -- },
   },
 
   {
