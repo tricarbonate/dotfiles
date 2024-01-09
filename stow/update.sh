@@ -13,6 +13,7 @@ declare -a package_configs=(
 	"alacritty ~/.config/alacritty/"
 	"vifm ~/.config/vifm"
 	"ssh ~/.ssh"
+	"xprofile ~/"
 )
 
 setopt shwordsplit
