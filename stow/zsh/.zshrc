@@ -13,6 +13,10 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/node_modules/.bin
 
+# puts .zcompdump files into .zcompdump folder (instead of home directory)
+# .zcompdump files allows faster completion by zsh
+export ZSH_COMPDUMP=".zcompdump"
+
 export FIFTPATH=/usr/local/bin/fiftlib
 
 # Path to your oh-my-zsh installation.
@@ -59,6 +63,11 @@ eval $(thefuck --alias)
 # alias todo="todo.sh"
 alias cd.="cd ~/Documents/tricarbonate/dotfiles"
 alias cdrepos="cd ~/Documents/tricarbonate"
+
+## BETTER LS 
+# -a option shows hidden files
+alias ls="exa -a"
+alias la="exa -abhl"
 
 # Tmux aliases
 alias td="tmux detach"
@@ -114,4 +123,10 @@ export ANDROID_HOME=/usr/lib/android-sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# go to ~/Downloads/ folder
+alias down="cd ~/Downloads"
+
+# export PATH=\"`python3 -m site --user-base`/bin:\$PATH\"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

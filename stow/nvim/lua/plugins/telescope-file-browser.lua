@@ -26,6 +26,13 @@ return {
         end,
         desc = "Show all Treesitter highlight groups",
       },
+      {
+        "<leader>f/",
+        function()
+          require("telescope.builtin").live_grep()
+        end,
+        desc = "Grep in cwd",
+      },
     },
 
     config = function(_, opts)
