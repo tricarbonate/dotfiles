@@ -15,7 +15,7 @@ export PATH=$PATH:~/node_modules/.bin
 
 # puts .zcompdump files into .zcompdump folder (instead of home directory)
 # .zcompdump files allows faster completion by zsh
-export ZSH_COMPDUMP=".zcompdump"
+# export ZSH_COMPDUMP=".zcompdump"
 
 export FIFTPATH=/usr/local/bin/fiftlib
 
@@ -52,27 +52,15 @@ fi
 # Thefuck
 eval $(thefuck --alias)
 
-# Brew
-#eval $(/opt/homebrew/bin/brew shellenv)
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# Aliases
-# alias todo="todo.sh"
-alias cd.="cd ~/Documents/tricarbonate/dotfiles"
-alias cdrepos="cd ~/Documents/tricarbonate"
 
 ## BETTER LS 
 # -a option shows hidden files
 alias ls="exa -a"
 alias la="exa -abhl"
 
-# Tmux aliases
-alias td="tmux detach"
-alias tl="tmux ls"
-alias tmux="tmux -2"
 function ts() {
   tmux switch -t $@
 }
@@ -99,8 +87,6 @@ alias tb='sudo docker run --rm -it -e "HOST_CW_DIR=${PWD}" -e "CALLING_HOST_NAME
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=/home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/app" -e "CALLING_HOST_NAME=Tricarbonate" -v /home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/app:/tb-module -v /home/tricarbonate/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=${PWD}" -e "CALLING_HOST_NAME=${hostname}" -e "CALLING_UID=$UID" -e "CALLING_OS=${uname}" -v $PWD}:/tb-module -v ${HOME}/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
 # alias tb='docker run --rm -it -e "HOST_CW_DIR=/home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/crazyflie-firmware" -e "CALLING_HOST_NAME=Tricarbonate" -v /home/tricarbonate/Documents/tricarbonate/poly/projet3/crazyflie-app/crazyflie-firmware:/tb-module -v /home/tricarbonate/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock bitcraze/toolbelt'
-#
-#
 
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 export PATH="/usr/local/opt/llvm/bin:$PATH"
@@ -117,14 +103,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# fortune | ponysay
-
 export ANDROID_HOME=/usr/lib/android-sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# go to ~/Downloads/ folder
-alias down="cd ~/Downloads"
+source ~/.aliases.sh
 
 # export PATH=\"`python3 -m site --user-base`/bin:\$PATH\"
 

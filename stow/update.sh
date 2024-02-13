@@ -7,6 +7,7 @@ declare -a package_configs=(
 	#	"nvim ~/"
 	"tmux ~/"
 	"zsh ~/"
+	"git ~/"
 	"xmodmap ~/"
 	#	"nvim-lua ~/.config/nvim/"
 	"nvim ~/.config/nvim"
