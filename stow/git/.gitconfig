@@ -1,0 +1,42 @@
+[user]
+	email = reibell.theo@gmail.com
+	name = tricarbonate
+[pull]
+  # Use rebase strategy when pulling 
+	rebase = true
+[http]
+	proxy = 
+[ssh]
+	identity = /home/tricarbonate/.ssh/id_rsa_github
+[core]
+	editor = nvim
+	excludesfile = /home/tricarbonate/.gitignore
+
+# Enables reuse recorded resolution, this allows git to reuse some conflict resolution
+# when the same conflict happens multiple times (during a rebase for example)
+[rerere]
+	enabled = true
+  autoupdate = 1
+
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
+
+# makes some command automatically format in columns (like git branch)
+[column]
+	ui = auto
+[branch]
+  # sort git branch info by commit date (most recent first)
+	sort = -committerdate
+[maintenance]
+	repo = /home/tricarbonate/Documents/tricarbonate/voxy
+[fetch]
+  # write the commit-graph automatically every time we fetch
+  # this can make some operation faster
+	writeCommitGraph = true
+[alias]
+	pushfl = push --force-with-lease
+  a = add --all
