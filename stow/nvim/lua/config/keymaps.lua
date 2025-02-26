@@ -4,6 +4,8 @@
 
 local keymap = vim.keymap
 
+keymap.set("n", "gd", vim.lsp.buf.definition)
+
 -- split windows
 keymap.set("n", "<leader>wj", ":split<return>")
 keymap.set("n", "<leader>wl", ":vsplit<return>")
