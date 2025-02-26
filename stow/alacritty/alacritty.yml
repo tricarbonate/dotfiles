@@ -56,11 +56,11 @@ font:
   #  y: 0
 
 # Colors (Tomorrow Night)
-colors:
-  # Default colors
-  primary:
-    background: '#111015'
-    foreground: '#efe8e6'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#111015'
+#     foreground: '#efe8e6'
 
     # Bright and dim foreground colors
     #
