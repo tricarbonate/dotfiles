@@ -31,6 +31,8 @@ DISABLE_AUTO_UPDATE="false"
 
 DISABLE_MAGIC_FUNCTIONS="true"
 
+alias lsnew = ls -snew | tail -n 5
+
 # for zsh_file (~/zsh/*.zsh) source $zsh_file
 
 export TERM=xterm-256color vim
@@ -58,8 +60,8 @@ eval $(thefuck --alias)
 
 ## BETTER LS 
 # -a option shows hidden files
-alias ls="exa -a"
-alias la="exa -abhl"
+# alias ls="exa -a"
+# alias la="exa -abhl"
 
 function ts() {
   tmux switch -t $@
@@ -145,3 +147,26 @@ export PATH="/usr/bin/flutter/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# pnpm
+export PNPM_HOME="/home/tricarbonate/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+#
+alias lsl="ls -t | head -n 1"
+function cdl () {
+  cd $(lsl)
+}
+function unzipl() {
+  zipfile="$(ls -t | head -n 1)"
+  dirname="${zipfile%.zip}"
+  mkdir -p "$dirname" && unzip "$zipfile" -d "$dirname"
+}
+
+alias python="python3"
+
+. "$HOME/.local/bin/env"
