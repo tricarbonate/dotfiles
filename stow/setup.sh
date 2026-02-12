@@ -29,12 +29,22 @@ apt-get install -y \
   neovim \
   curl
 
+# Check if git user.name property is set
+git config --get user.name > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  echo "Git user.name is set to: $(git config --get user.name). Will keep current value"
+else
+  echo "Setting git global user.email and user.name properties"
+  git config --global user.email "reibell.theo@gmail.com"
+  git config --global user.name "Theo Reibell"
+fi
+
 # Installs Rustup (follow on-screen instructions)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env # this will add 'cargo' to PATH
 
 # Directory for all manual installation (repo cloning etc...)
-# The content of this may be removed if needed but not by this script
+# The content of this may be removed if needed
 mkdir -p ~/installs
 
 # Alacritty manual installation
