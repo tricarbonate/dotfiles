@@ -1,14 +1,26 @@
 # Script to setup everything (installing all necessary packages),
 # should work for a newly installed linux (Ubuntu)
 
+
+# We will need root privileges
+if [[ $EUID -ne 0 ]]; then
+   echo "This script is not running as root. Attempting to re-run with sudo..."
+   exec sudo bash "$0"
+   exit 99 # Should not reach here if exec is successful
+fi
+
+
+# The rest of your script, which will now run as root
+echo "Script is now running as root (EUID is $EUID)."
+
 # Directory from which this script should be run
 PWD_DIR=$(pwd)
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+add-apt-repository ppa:neovim-ppa/unstable
 
-sudo apt-get update -y
+apt-get update -y
 
-sudo apt-get install -y \
+apt-get install -y \
   zsh \
   stow \
   tmux \
